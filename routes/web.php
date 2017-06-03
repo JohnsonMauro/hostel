@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/page/{name}', function($name) {
-	return "Olá eu sou o $name, você me chamou ?";
-});
+Route::get('/rooms', 'RoomController@index');
+
+Route::get('/rooms/mostra', 'RoomController@show');
