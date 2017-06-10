@@ -2,15 +2,15 @@
 
 namespace hostel\Http\Controllers;
 
+use hostel\Models\Environment;
 use Illuminate\Support\Facades\DB;
 use Request;
 
 class RoomController extends Controller {
 
 	public function index() {
-
-		$rooms = DB::select('select * from environment where active = ?',[1]);
-
+		
+		$rooms = environment::where('active',1)->get();
 
 		return view('rooms.index')->withRooms($rooms);
 	}
