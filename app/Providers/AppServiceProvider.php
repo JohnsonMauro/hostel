@@ -1,6 +1,6 @@
 <?php
 
-namespace Hostel\Providers;
+namespace hostel\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

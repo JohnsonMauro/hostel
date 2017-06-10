@@ -1,9 +1,9 @@
 <?php
 
-namespace Hostel\Http\Controllers\Auth;
+namespace hostel\Http\Controllers\Auth;
 
-use Hostel\User;
-use Hostel\Http\Controllers\Controller;
+use hostel\Models\User;
+use hostel\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/rooms';
 
     /**
      * Create a new controller instance.

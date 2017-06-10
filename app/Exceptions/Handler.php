@@ -1,6 +1,6 @@
 <?php
 
-namespace Hostel\Exceptions;
+namespace hostel\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;

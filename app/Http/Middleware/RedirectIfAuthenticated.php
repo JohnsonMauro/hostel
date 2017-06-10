@@ -1,6 +1,6 @@
 <?php
 
-namespace Hostel\Http\Middleware;
+namespace hostel\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

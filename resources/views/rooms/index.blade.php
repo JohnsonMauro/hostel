@@ -1,6 +1,7 @@
-@extends('layout.page')
+@extends('layouts.app')
 
 @section('content')
+<div class="container">
 	<h1>Listagem de quartos</h1>
 
 
@@ -37,4 +38,5 @@
 	</table>
 	<a href="{{ action('RoomController@add') }}" class="btn btn-primary">Adicionar</a>
 	@endif
+</div>	
 @endsection

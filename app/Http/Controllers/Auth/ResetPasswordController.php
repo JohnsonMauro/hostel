@@ -1,8 +1,8 @@
 <?php
 
-namespace Hostel\Http\Controllers\Auth;
+namespace hostel\Http\Controllers\Auth;
 
-use Hostel\Http\Controllers\Controller;
+use hostel\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class ResetPasswordController extends Controller

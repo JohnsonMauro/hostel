@@ -1,6 +1,6 @@
 <?php
 
-namespace Hostel\Models;
+namespace hostel\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;

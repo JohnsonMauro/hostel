@@ -1,6 +1,6 @@
 <?php
 
-namespace Hostel\Http\Middleware;
+namespace hostel\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncrypter;
 

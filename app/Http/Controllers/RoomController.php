@@ -1,6 +1,6 @@
 <?php
 
-namespace Hostel\Http\Controllers;
+namespace hostel\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Request;

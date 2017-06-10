@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Larashop\Hostel\User::class,
+            'model' => hostel\Models\User::class,
         ],
 
         // 'users' => [

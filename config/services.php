@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => Hostel\User::class,
+        'model' => hostel\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

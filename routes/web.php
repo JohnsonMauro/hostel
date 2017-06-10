@@ -15,16 +15,22 @@ Route::get('/', function () {
     return redirect('/rooms');
 });
 
-Route::get('/rooms', 'RoomController@index');
+Route::group(['middleware' => 'auth','prefix'=> '/rooms'], function() {
+	Route::get('/', 'RoomController@index');
 
-Route::get('/rooms/mostra/{id}', 'RoomController@show')->where('id','[0-9]+');
+	Route::get('mostra/{id}', 'RoomController@show')->where('id','[0-9]+');
 
-Route::get('/rooms/add', 'RoomController@add');
+	Route::get('add', 'RoomController@add');	
 
-Route::post('/rooms/add', 'RoomController@save');
+	Route::post('add', 'RoomController@save');
 
-Route::get('/rooms/delete/{id}', 'RoomController@delete')->where('id', '[0-9]+');
+	Route::get('delete/{id}', 'RoomController@delete')->where('id', '[0-9]+');
 
-Route::get('/rooms/update/{id}', 'RoomController@prepareUpdate')->where('id', '[0-9]+');
+	Route::get('update/{id}', 'RoomController@prepareUpdate')->where('id', '[0-9]+');
 
-Route::post('/rooms/update', 'RoomController@update');
+	Route::post('update', 'RoomController@update');
+
+});
+
+
+Auth::routes();

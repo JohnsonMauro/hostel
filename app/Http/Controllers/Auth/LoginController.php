@@ -1,8 +1,8 @@
 <?php
 
-namespace Hostel\Http\Controllers\Auth;
+namespace hostel\Http\Controllers\Auth;
 
-use Hostel\Http\Controllers\Controller;
+use hostel\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/rooms';
 
     /**
      * Create a new controller instance.

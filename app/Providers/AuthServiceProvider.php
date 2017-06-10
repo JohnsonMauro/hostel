@@ -1,6 +1,6 @@
 <?php
 
-namespace Hostel\Providers;
+namespace hostel\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'Hostel\Model' => 'Hostel\Policies\ModelPolicy',
+        'hostel\Model' => 'hostel\Policies\ModelPolicy',
     ];
 
     /**

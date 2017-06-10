@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Hostel'),
 
     /*
     |--------------------------------------------------------------------------
@@ -172,11 +172,11 @@ return [
         /*
          * Application Service Providers...
          */
-        Hostel\Providers\AppServiceProvider::class,
-        Hostel\Providers\AuthServiceProvider::class,
-        // Hostel\Providers\BroadcastServiceProvider::class,
-        Hostel\Providers\EventServiceProvider::class,
-        Hostel\Providers\RouteServiceProvider::class,
+        hostel\Providers\AppServiceProvider::class,
+        hostel\Providers\AuthServiceProvider::class,
+        // hostel\Providers\BroadcastServiceProvider::class,
+        hostel\Providers\EventServiceProvider::class,
+        hostel\Providers\RouteServiceProvider::class,
 
     ],
 
