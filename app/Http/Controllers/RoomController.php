@@ -3,6 +3,7 @@
 namespace hostel\Http\Controllers;
 
 use hostel\Models\Environment;
+use hostel\Models\TypeEnvironment;
 use Illuminate\Support\Facades\DB;
 use Request;
 
@@ -17,7 +18,7 @@ class RoomController extends Controller {
 
 	public function show($id) {
 
-		$room = DB::select('select * from environment where id = ?', [$id]);
+		$room = environment::where('id', $id)->get();
 
 		if(empty($room)) {
 			return "Esse quarto não existe";
@@ -28,7 +29,8 @@ class RoomController extends Controller {
 
 	public function add() {
 
-		return view('rooms.add');
+		$types = TypeEnvironment::where('active',1)->pluck('description','id');
+		return view('rooms.add')->with('types',$types);
 	}
 
 	public function save() {
@@ -40,13 +42,14 @@ class RoomController extends Controller {
 	}
 
 	public function delete($id) {
+		$this->deleteRoom($id);
 
-		return $this->index()->with('success', $this->deleteRoom($id));		
+		return redirect('/rooms');		
 	}
 
 	public function prepareUpdate($id) {
 
-		$room = DB::select('select * from environment where id = ? and active = ?', [$id, 1]);
+		$room = environment::where(['id' => $id, 'active' => '1' ])->get();
 
 		return view('rooms.update')->with('r', $room[0]);
 	}
@@ -65,9 +68,30 @@ class RoomController extends Controller {
 		return Request::all();
 	}
 
+	private function getEnvironmentRequest() {
+		$room = Request::all();
+
+		$environment = new Environment;
+		$environment->name = $room['name'];
+		$environment->simple_description = $room['simpleDescription'];
+		$environment->long_description = $room['longDescription'];
+		$environment->type_environment_id = $room['types'];
+
+		return $environment;
+	}
+
 	private function insertRoom($room, $version = 1) {
-		$success = DB::insert('insert into environment (name,simple_description,long_description, date_insert, version) values (?, ?, ?, ?, ?)', [$room['name'], $room['simpleDescription'], $room['longDescription'], $this->getDate(), $version]);
-		return $success;
+			
+		$environment = $this->getEnvironmentRequest();
+		$environment->created_at = $this->getDate();
+		$environment->updated_at = $this->getDate();
+		$environment->version = $version;
+		$environment->active = 1;
+
+		
+		return $environment->save();
+
+		
 	}
 
 	private function getDate() {

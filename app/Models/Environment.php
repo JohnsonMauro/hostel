@@ -6,4 +6,6 @@
  class Environment extends Model 
  {
  	protected $table = 'environment';
+
+ 	protected $fillable = ['name','simple_description','long_description','active','version'];
  }

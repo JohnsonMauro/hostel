@@ -23,7 +23,7 @@ class CreateEnvironmentTable extends Migration
             $table->string('long_description',1000);
             $table->integer('active');
             $table->integer('version');
-            $table->date('create_at');
+            $table->date('created_at');
             $table->date('updated_at');
         });
     }

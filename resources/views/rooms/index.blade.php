@@ -13,10 +13,6 @@
 		@endif
 	@endif
 
-	@if(empty($rooms))
-		<div>Você não tem nenhum quarto cadastrado.</div>
-	@else
-
 	<table class="table table-striped table-bordered table-hover">
 		@forelse ($rooms as $r)
 			<tr>
@@ -34,9 +30,10 @@
 					</a>	
 				</td>
 			</tr>
-		@endforeach
+		@empty
+					<div>Você não tem nenhum quarto cadastrado.</div>	
+		@endforelse
 	</table>
 	<a href="{{ action('RoomController@add') }}" class="btn btn-primary">Adicionar</a>
-	@endif
 </div>	
 @endsection
