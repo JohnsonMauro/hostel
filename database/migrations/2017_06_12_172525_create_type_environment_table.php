@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +16,11 @@ class CreateTypeEnvironmentTable extends Migration
     {
         Schema::create('type_environment', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('description',200);
+            $table->integer('active');
+            $table->integer('version');
+            $table->date('created_at');
+            $table->date('updated_at');
         });
     }
 

@@ -15,7 +15,16 @@ class CreateEnvironmentTable extends Migration
     {
         Schema::create('environment', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('type_environment_id')->unsigned();
+            $table->foreign('type_environment_id')
+                ->references('id')->on('type_environment');
+            $table->string('name');
+            $table->string('simple_description',100);
+            $table->string('long_description',1000);
+            $table->integer('active');
+            $table->integer('version');
+            $table->date('create_at');
+            $table->date('updated_at');
         });
     }
 
