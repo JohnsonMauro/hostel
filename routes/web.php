@@ -35,6 +35,8 @@ Route::group(['middleware' => 'auth','prefix'=> '/rooms'], function() {
 Route::group(['middleware' => 'auth', 'prefix' => '/payment'], function() {
 
 	Route::get('/', 'PaymentController@index');
+
+	Route::post('/submit', 'PaymentController@submit');
 	
 });
 
