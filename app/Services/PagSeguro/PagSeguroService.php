@@ -17,12 +17,12 @@ class PagSeguroService implements IPagSeguroService
 		$this->token = "46DCB972D4E04E6183C09675C3DAC219";
 	}
 
-	public function send()
+	public function send($req)
 	{
 		 $this->curl = curl_init($this->getURL());
      curl_setopt($this->curl, CURLOPT_SSL_VERIFYPEER, false);
      curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true);
-     curl_setopt($this->curl, CURLOPT_POSTFIELDS, $this->getRequestData());
+     curl_setopt($this->curl, CURLOPT_POSTFIELDS, $this->getRequestData($req));
      $this->respostaPagSeguro = curl_exec($this->curl);
      $this->http = curl_getinfo($this->curl);		
      $this->createLog();
@@ -35,14 +35,13 @@ class PagSeguroService implements IPagSeguroService
 		return "https://ws.sandbox.pagseguro.uol.com.br/v2/checkout/?email=" .$this->email ."&token=".$this->token;
 	}
 
-	public function getRequestData()
+	public function getRequestData($req)
 	{
 		$dadosCompra['currency'] = "BRL";
-    $dadosCompra['itemId1'] = "0001";
-    $dadosCompra['itemDescription1'] = "Notebook Prata";
-    $dadosCompra['itemAmount1'] = "243.00";
+    $dadosCompra['itemId1'] = $req['id'];
+    $dadosCompra['itemDescription1'] = $req['name'];
+    $dadosCompra['itemAmount1'] = $req['value'];
     $dadosCompra['itemQuantity1'] = "1";
-    $dadosCompra['itemWeight1'] = "320";
     $dadosCompra = http_build_query($dadosCompra);
 
     return $dadosCompra;

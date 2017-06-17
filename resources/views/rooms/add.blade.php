@@ -24,6 +24,11 @@
   </div>
   
   <div class="form-group">
+    <label for="inputValue" class="control-label">Valor</label>
+    <input id="inputValue" name="value" class="form-control" placeholder="Digite o valor" type="number">
+  </div>
+
+  <div class="form-group">
     <label for="inputLongDescription" class="control-label">Resumo</label>
     <textarea class="form-control" name="longDescription" id="inputLongDescription" rows="5" placeholder="Digite um resumo do quarto"></textarea>
   </div>

@@ -21,6 +21,7 @@ class CreateEnvironmentTable extends Migration
             $table->string('name');
             $table->string('simple_description',100);
             $table->string('long_description',1000);
+            $table->decimal('value','0','3');
             $table->integer('active');
             $table->integer('version');
             $table->date('created_at');

@@ -7,5 +7,5 @@
  {
  	protected $table = 'environment';
 
- 	protected $fillable = ['name','simple_description','long_description','active','version'];
+ 	protected $fillable = ['name','simple_description','long_description','value','active','version'];
  }

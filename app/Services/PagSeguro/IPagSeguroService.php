@@ -7,9 +7,7 @@ interface IPagSeguroService
 
 	public function getURL();
 
-	public function getRequestData();
-
 	public function createLog();
 
-	public function send();
+	public function send($req);
 }

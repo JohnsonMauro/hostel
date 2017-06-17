@@ -27,6 +27,9 @@
 					</a>
 					<a href="/rooms/delete/{{ $r->id }}">
 						<span class="glyphicon glyphicon-remove"></span>
+					</a>
+					<a href="/payment/submit/{{ $r->id }}">
+						<span>Pagar</span>
 					</a>	
 				</td>
 			</tr>

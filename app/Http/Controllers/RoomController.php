@@ -76,6 +76,7 @@ class RoomController extends Controller {
 		$environment->simple_description = $room['simpleDescription'];
 		$environment->long_description = $room['longDescription'];
 		$environment->type_environment_id = $room['types'];
+		$environment->value = $room['value'];
 
 		return $environment;
 	}
