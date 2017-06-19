@@ -26,6 +26,7 @@ class PaymentController extends Controller
     {   
         $env = Environment::where(['id' => $id , 'active' => '1'])->get();
         $code = $this->service->send($env[0]);
-	    return view('payment.success')->with('code', $code);
+        $url = env('URL_PAGSEGURO','').$code;
+        return redirect()->away($url);
 	}
 }

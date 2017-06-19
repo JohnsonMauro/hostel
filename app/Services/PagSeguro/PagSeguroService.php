@@ -14,7 +14,7 @@ class PagSeguroService implements IPagSeguroService
 	public function __construct()
 	{
 		$this->email = "matheus.lubarino1@gmail.com";
-		$this->token = "46DCB972D4E04E6183C09675C3DAC219";
+		$this->token = env("TOKEN_PAGSEGURO","null");
 	}
 
 	public function send($req)
@@ -43,7 +43,6 @@ class PagSeguroService implements IPagSeguroService
     $dadosCompra['itemAmount1'] = $req['value'];
     $dadosCompra['itemQuantity1'] = "1";
     $dadosCompra = http_build_query($dadosCompra);
-
     return $dadosCompra;
 	}
 
