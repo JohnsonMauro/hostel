@@ -13,7 +13,7 @@ class RoomController extends Controller {
 		
 		$rooms = environment::where('active',1)->get();
 
-		return view('rooms.index')->withRooms($rooms);
+		return view('rooms.index', compact('rooms'));
 	}
 
 	public function show($id) {
@@ -36,7 +36,8 @@ class RoomController extends Controller {
 	public function save() {
 
 		$room = $this->getAllRequest();
-		$success = $this->insertRoom($room);
+		$this->insertRoom($room);
+		session()->flash('flash_message','Quarto inserido com sucesso');
 
 		return redirect('/rooms');
 	}

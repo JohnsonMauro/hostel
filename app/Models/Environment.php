@@ -8,4 +8,10 @@
  	protected $table = 'environment';
 
  	protected $fillable = ['name','simple_description','long_description','value','active','version'];
+
+ 	public function typeEnvironment()
+ 	{
+ 		$this->belongsTo('hostel\Models\TypeEnvironment');
+ 	}
+
  }

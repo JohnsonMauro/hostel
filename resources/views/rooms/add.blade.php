@@ -4,9 +4,7 @@
 
 <h2>Adicione um ambiente</h2>
 
-<form id="formQuarto" action="/rooms/add" method="POST" data-toggle="validator" role="form">
-  <input type="hidden" 
-  name="_token" value="{{{ csrf_token() }}}" />
+{!! Form::open(['url' => 'rooms/add', 'id' => 'formQuarto']) !!}
 
   <div class="form-group">
     <label for="textName" class="control-label">Nome do quarto</label>
@@ -35,7 +33,7 @@
   <button type="reset" class="btn btn-primary">Limpar</button>
   <a href="{{action('RoomController@index')}}" class="btn btn-success">Voltar</a>
   <button type="submit" class="btn btn-primary">Enviar</button>
-</form>
+{!! Form::close() !!}
 
 
 @endsection
