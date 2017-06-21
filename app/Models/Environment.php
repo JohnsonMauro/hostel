@@ -14,4 +14,9 @@
  		$this->belongsTo('hostel\Models\TypeEnvironment');
  	}
 
+ 	public function scheduleRoom()
+ 	{
+ 		$this->hasMany('hostel\Models\ScheduleRoom');
+ 	}
+
  }
