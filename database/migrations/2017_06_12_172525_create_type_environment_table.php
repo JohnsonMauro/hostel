@@ -17,8 +17,8 @@ class CreateTypeEnvironmentTable extends Migration
         Schema::create('type_environment', function (Blueprint $table) {
             $table->increments('id');
             $table->string('description',200);
-            $table->integer('active');
-            $table->integer('version');
+            $table->integer('active')->default(1);
+            $table->integer('version')->default(1);
             $table->date('created_at');
             $table->date('updated_at');
         });
