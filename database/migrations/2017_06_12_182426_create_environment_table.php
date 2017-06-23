@@ -19,6 +19,8 @@ class CreateEnvironmentTable extends Migration
             $table->string('simple_description',100);
             $table->string('long_description',1000);
             $table->decimal('value','5','0');
+            $table->integer('amount_adult')->default(2);
+            $table->integer('amount_children')->default(1);
             $table->integer('active')->default(1);
             $table->integer('version')->default(1);
             $table->timestamps();
