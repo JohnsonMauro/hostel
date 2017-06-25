@@ -19,13 +19,13 @@
 				<td>{{ $r->name }}</td>
 				<td>{{ $r->simple_description }}</td>
 				<td>
-					<a href="/rooms/mostra/{{ $r->id }}">
+					<a href="/environment/mostra/{{ $r->id }}">
 						<span class="glyphicon glyphicon-search"></span>
 					</a>
-					<a href="/rooms/update/{{$r->id}}">
+					<a href="/environment/update/{{$r->id}}">
 						<span class="glyphicon glyphicon-pencil"></span>
 					</a>
-					<a href="/rooms/delete/{{ $r->id }}">
+					<a href="/environment/delete/{{ $r->id }}">
 						<span class="glyphicon glyphicon-remove"></span>
 					</a>
 					<a href="/payment/submit/{{ $r->id }}">
@@ -37,6 +37,6 @@
 					<div>Você não tem nenhum quarto cadastrado.</div>	
 		@endforelse
 	</table>
-	<a href="{{ action('RoomController@add') }}" class="btn btn-primary">Adicionar</a>
+	<a href="{{ action('EnvironmentController@add') }}" class="btn btn-primary">Adicionar</a>
 </div>	
 @endsection

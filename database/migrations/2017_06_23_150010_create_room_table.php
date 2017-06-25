@@ -13,17 +13,12 @@ class CreateRoomTable extends Migration
      */
     public function up()
     {
-        Schema::table('rooms', function (Blueprint $table) {
+        Schema::create('rooms', function (Blueprint $table) {
             $table->increments('id');
             $table->string('description');
+            $table->integer('active')->nullable(false)->default(1)->unsigned();
+            $table->integer('version')->nullable(false)->default(1)->unsigned();
             $table->timestamps();
-        });
-
-         Schema::table('rooms', function(Blueprint $table) {
-            $table->integer('parent_id')->unsigned()->index();
-            $table->foreign('parent_id')
-                ->references('id')
-                ->on('rooms');
         });
     }
 

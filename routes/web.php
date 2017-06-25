@@ -11,24 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect('/rooms');
+
+Route::group(['middleware' => 'auth'], function(){
+	Route::get('/','IndexController@index');
 });
 
-Route::group(['middleware' => 'auth','prefix'=> '/rooms'], function() {
-	Route::get('/', 'RoomController@index');
+Route::group(['middleware' => 'auth','prefix'=> '/environment'], function() {
+	Route::get('/', 'EnvironmentController@index');
 
-	Route::get('mostra/{id}', 'RoomController@show')->where('id','[0-9]+');
+	Route::get('mostra/{id}', 'EnvironmentController@show')->where('id','[0-9]+');
 
-	Route::get('add', 'RoomController@add');	
+	Route::get('add', 'EnvironmentController@add');	
 
-	Route::post('add', 'RoomController@save');
+	Route::post('add', 'EnvironmentController@save');
 
-	Route::get('delete/{id}', 'RoomController@delete')->where('id', '[0-9]+');
+	Route::get('delete/{id}', 'EnvironmentController@delete')->where('id', '[0-9]+');
 
-	Route::get('update/{id}', 'RoomController@prepareUpdate')->where('id', '[0-9]+');
+	Route::get('update/{id}', 'EnvironmentController@prepareUpdate')->where('id', '[0-9]+');
 
-	Route::post('update', 'RoomController@update');
+	Route::post('update', 'EnvironmentController@update');
 
 });
 
@@ -40,5 +41,12 @@ Route::group(['middleware' => 'auth', 'prefix' => '/payment'], function() {
 	
 });
 
+Route::group(['middleware' => 'auth', 'prefix' => '/room'], function() {
+
+	Route::get('/', 'RoomController@index');
+
+	Route::post('/', 'RoomController@add');
+
+});
 
 Auth::routes();

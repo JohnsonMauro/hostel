@@ -1,10 +1,6 @@
-@extends('layouts.app')
-
-@section('content')
-
 <h2>Adicione um ambiente</h2>
 
-{!! Form::open(['url' => 'rooms/add', 'id' => 'formQuarto']) !!}
+{!! Form::open(['url' => 'environment/add', 'id' => 'formQuarto']) !!}
 
   <div class="form-group">
     <label for="textName" class="control-label">Nome do quarto</label>
@@ -31,9 +27,6 @@
     <textarea class="form-control" name="longDescription" id="inputLongDescription" rows="5" placeholder="Digite um resumo do quarto"></textarea>
   </div>
   <button type="reset" class="btn btn-primary">Limpar</button>
-  <a href="{{action('RoomController@index')}}" class="btn btn-success">Voltar</a>
+  <a href="{{action('EnvironmentController@index')}}" class="btn btn-success">Voltar</a>
   <button type="submit" class="btn btn-primary">Enviar</button>
 {!! Form::close() !!}
-
-
-@endsection

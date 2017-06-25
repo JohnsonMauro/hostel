@@ -4,7 +4,7 @@
 
 <h2>Atualização do ambiente: {{ $r->name }}</h2>
 
-<form id="formQuarto" action="/rooms/update" method="post" data-toggle="validator" role="form">
+<form id="formQuarto" action="/environment/update" method="post" data-toggle="validator" role="form">
   <input type="hidden" 
   name="_token" value="{{{ csrf_token() }}}" />
 
@@ -14,6 +14,11 @@
   <div class="form-group">
     <label for="textName" class="control-label">Nome do quarto</label>
     <input id="textName" name="name" value="{{$r->name}}" class="form-control" placeholder="Digite o nome do quarto..." type="text">
+  </div>
+
+  <div class="form-group">
+    <label for="inputLongDescription" class="control-label">Tipo ambiente</label>
+    {{ Form::select('types', $types, null, array('class' => 'form-control')) }}
   </div>
   
   <div class="form-group">
@@ -28,7 +33,7 @@
   
   <button type="submit" class="btn btn-primary">Enviar</button>
   <button type="reset" class="btn btn-primary">Limpar</button>
-  <a href="{{action('RoomController@index')}}" class="btn btn-success">Voltar</a>
+  <a href="{{action('EnvironmentController@index')}}" class="btn btn-success">Voltar</a>
 </form>
 
 @endsection
