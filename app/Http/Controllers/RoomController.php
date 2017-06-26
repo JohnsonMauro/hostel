@@ -18,7 +18,7 @@ class RoomController extends Controller
     	session()->flash('flash_message','Cômodo inserido com sucesso');
     	session()->flash('menu', '2');
     	session()->flash('url', '/room');
-    	return view('layouts.tabs');
+    	return redirect('/');
     }
 
     public function save()

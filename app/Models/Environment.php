@@ -9,14 +9,9 @@
 
  	protected $fillable = ['name','simple_description','long_description','value'];
 
- 	public function typeEnvironment()
- 	{
- 		$this->belongsTo('hostel\Models\TypeEnvironment');
- 	}
-
- 	public function scheduleRoom()
- 	{
- 		$this->hasMany('hostel\Models\ScheduleRoom');
- 	}
+ 	public function rooms()
+    {
+    	return $this->belongsToMany('hostel\Models\Room')->withPivot('active','version')->withTimestamps();
+    }
 
  }

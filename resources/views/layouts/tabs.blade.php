@@ -11,7 +11,7 @@
 </ul>
 
 <div class="tab-content">
-    <div id="menu1" class="tab-pane fade in active">
+    <div id="menu1" class="tab-pane fade">
       
     </div>
     <div id="menu2" class="tab-pane fade">
@@ -33,15 +33,12 @@
       url: page,
       success: function(data) {
         $("#menu"+number).html(data);
+        $("#menu"+number).addClass("in active");
       },
       complete: function()
       {
         $("#li" + number).tab('show');  
       }
-    })
-
-    $.get(page, function(data) {
-      
     });
   }
 

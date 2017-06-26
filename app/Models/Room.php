@@ -8,13 +8,8 @@ class Room extends Model
 {
     protected $fillable = ['description', 'parent_id'];
 
-    public function children()
+    public function environments()
     {
-    	return $this->hasMany('hostel\Models\Room', 'parent_id');
-    }
-
-    public function parent()
-    {
-    	return $this->belongsTo('hostel\Models\Room');
+    	return $this->belongsToMany('hostel\Models\Environment');
     }
 }
