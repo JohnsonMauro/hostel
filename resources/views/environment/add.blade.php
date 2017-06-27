@@ -8,8 +8,11 @@
   </div>
 
   <div class="form-group">
-    <label for="inputLongDescription" class="control-label">Tipo ambiente</label>
-    {{ Form::select('types', $types, null, array('class' => 'form-control')) }}
+    <label for="inputLongDescription" class="control-label">Cômodos</label>
+    <br>
+    @foreach($room as $r)
+      <input type="checkbox" name="room_id[]" value="{{$r->id}}">{{$r->description}}<br>
+    @endforeach
   </div>
   
   <div class="form-group">
@@ -27,6 +30,6 @@
     <textarea class="form-control" name="longDescription" id="inputLongDescription" rows="5" placeholder="Digite um resumo do quarto"></textarea>
   </div>
   <button type="reset" class="btn btn-primary">Limpar</button>
-  <a href="{{action('EnvironmentController@index')}}" class="btn btn-success">Voltar</a>
+  <a href="{{action('IndexController@index')}}" class="btn btn-success">Voltar</a>
   <button type="submit" class="btn btn-primary">Enviar</button>
 {!! Form::close() !!}

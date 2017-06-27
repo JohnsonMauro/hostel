@@ -4,6 +4,7 @@ namespace hostel\Http\Controllers;
 
 use hostel\Models\Environment;
 use hostel\Models\TypeEnvironment;
+use hostel\Models\Room;
 use Illuminate\Support\Facades\DB;
 use Request;
 
@@ -30,13 +31,13 @@ class EnvironmentController extends Controller {
 	public function add() {
 
 		$types = TypeEnvironment::where('active',1)->pluck('description','id');
-		return view('environment.add')->with('types',$types)->render();
+		$rooms = Room::where('active',1)->get();
+		return view('environment.add')->with('types',$types)->with('room',$rooms)->render();
 	}
 
 	public function save() {
 
-		$room = $this->getAllRequest();
-		$this->insertRoom($room);
+		$room = $this->insertRoom();
 		session()->flash('flash_message','Quarto inserido com sucesso');
 
 		return redirect('/environment');
@@ -71,18 +72,17 @@ class EnvironmentController extends Controller {
 
 	private function getEnvironmentRequest() {
 		$room = Request::all();
-
+		
 		$environment = new Environment;
 		$environment->name = $room['name'];
 		$environment->simple_description = $room['simpleDescription'];
 		$environment->long_description = $room['longDescription'];
-		$environment->type_environment_id = $room['types'];
 		$environment->value = $room['value'];
 
 		return $environment;
 	}
 
-	private function insertRoom($room, $version = 1) {
+	private function insertRoom($version = 1) {
 			
 		$environment = $this->getEnvironmentRequest();
 		$environment->created_at = $this->getDate();
@@ -91,7 +91,10 @@ class EnvironmentController extends Controller {
 		$environment->active = 1;
 
 		
-		return $environment->save();
+		$environment->save();
+
+		$request = Request::all();
+		$environment->rooms()->attach($request['room_id']);
 
 		
 	}

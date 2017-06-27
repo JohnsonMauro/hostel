@@ -37,6 +37,6 @@
 					<div>Você não tem nenhum quarto cadastrado.</div>	
 		@endforelse
 	</table>
-	<a href="{{ action('EnvironmentController@add') }}" class="btn btn-primary">Adicionar</a>
+	<a href="{{ action('IndexController@index') }}" class="btn btn-primary">Adicionar</a>
 </div>	
 @endsection
