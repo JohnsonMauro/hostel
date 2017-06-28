@@ -30,9 +30,8 @@ class EnvironmentController extends Controller {
 
 	public function add() {
 
-		$types = TypeEnvironment::where('active',1)->pluck('description','id');
 		$rooms = Room::where('active',1)->get();
-		return view('environment.add')->with('types',$types)->with('room',$rooms)->render();
+		return view('environment.add')->with('room',$rooms)->render();
 	}
 
 	public function save() {
@@ -51,9 +50,11 @@ class EnvironmentController extends Controller {
 
 	public function prepareUpdate($id) {
 
-		$room = environment::where(['id' => $id, 'active' => '1' ])->get();
-
-		return view('environment.update')->with('r', $room[0]);
+		$room = Environment::find($id);
+		$r = $room->rooms();
+		dd($r);
+		$rooms = Room::where('active',1)->get();
+		return view('environment.update')->with('r', $room)->with('rooms', $rooms);
 	}
 
 	public function update() {
@@ -78,6 +79,9 @@ class EnvironmentController extends Controller {
 		$environment->simple_description = $room['simpleDescription'];
 		$environment->long_description = $room['longDescription'];
 		$environment->value = $room['value'];
+		$environment->qtd_adult = $room['qtd_adult'];
+		$environment->qtd_children = $room['qtd_children'];
+		$environment->qtd_bed = $room['qtd_bed'];
 
 		return $environment;
 	}

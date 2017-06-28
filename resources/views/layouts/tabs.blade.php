@@ -6,8 +6,6 @@
     <li id="li1"><a data-toggle="tab" href="#menu1" onclick="renderPage('1', 'environment/add')">Ambientes</a></li>
     
     <li id="li2"><a data-toggle="tab" href="#menu2" onclick="renderPage('2', '/room')">Cômodos</a></li>
-
-    <li id="li3"><a data-toggle="tab" href="#menu3">Itens</a></li>
 </ul>
 
 <div class="tab-content">
@@ -16,9 +14,6 @@
     </div>
     <div id="menu2" class="tab-pane fade">
       
-    </div>
-    <div id="menu3" class="tab-pane fade">
-      @yield('itens')
     </div>
   </div>
 </div>

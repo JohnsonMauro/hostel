@@ -13,7 +13,7 @@
 
 
 Route::group(['middleware' => 'auth'], function(){
-	Route::get('/','IndexController@index');
+	Route::get('/','EnvironmentController@index');
 });
 
 Route::group(['middleware' => 'auth','prefix'=> '/environment'], function() {
@@ -47,6 +47,10 @@ Route::group(['middleware' => 'auth', 'prefix' => '/room'], function() {
 
 	Route::post('/', 'RoomController@add');
 
+});
+
+Route::group(['middleware' => 'auth', 'prefix' => '/add'], function() {
+	Route::get('/', 'IndexController@index');
 });
 
 Auth::routes();

@@ -7,7 +7,7 @@
  {
  	protected $table = 'environment';
 
- 	protected $fillable = ['name','simple_description','long_description','value'];
+ 	protected $fillable = ['name','simple_description','long_description','value', 'qtd_adult', 'qtd_children', 'qtd_bed'];
 
  	public function rooms()
     {

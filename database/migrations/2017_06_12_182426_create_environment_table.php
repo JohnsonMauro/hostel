@@ -21,16 +21,12 @@ class CreateEnvironmentTable extends Migration
             $table->decimal('value','5','0');
             $table->integer('amount_adult')->default(2);
             $table->integer('amount_children')->default(1);
+            $table->integer('qtd_adult')->nullable(false);
+            $table->integer('qtd_children')->nullable(false);
+            $table->integer('qtd_bed')->nullable(false);
             $table->integer('active')->default(1);
             $table->integer('version')->default(1);
             $table->timestamps();
-        });
-
-        Schema::table('environment', function(Blueprint $table) {
-            $table->integer('type_environment_id')->unsigned()->index();
-            $table->foreign('type_environment_id')
-                ->references('id')
-                ->on('type_environment');
         });
     }
 
