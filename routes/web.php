@@ -13,6 +13,12 @@
 
 
 Route::group(['middleware' => 'auth'], function(){
+	Route::get('/dashboard/cadastro', function(){
+		return View('cadastros/cadastros');
+	});
+});
+
+Route::group(['middleware' => 'auth'], function(){
 	Route::get('/','EnvironmentController@index');
 });
 

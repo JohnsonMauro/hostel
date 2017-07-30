@@ -1,42 +1,62 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-	<h1>Listagem de quartos</h1>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">Dashboard</h1>
 
+        <div class="row">
+          <div class="col-xs-2">
+            <label>Data</label>
+            <input type="text" class="form-control" placeholder="__/__/____">
+          </div>
+          <div class="col-xs-2">
+            <br />
+            <button type="button" class="btn btn-primary">Pesquisar</button>
+          </div>
+        </div>
 
-	@if(isset($success))
-		@if($success)
-			<div class="alert alert-success" role="alert">Ambiente removido com sucesso</div>
-		@else
-			<div class="alert alert-danger" role="alert">Não foi possível remover o ambiente</div>
-		@endif
-	@endif
-
-	<table class="table table-striped table-bordered table-hover">
-		@forelse ($rooms as $r)
-			<tr>
-				<td>{{ $r->name }}</td>
-				<td>{{ $r->simple_description }}</td>
-				<td>
-					<a href="/environment/mostra/{{ $r->id }}">
-						<span class="glyphicon glyphicon-search"></span>
-					</a>
-					<a href="/environment/update/{{$r->id}}">
-						<span class="glyphicon glyphicon-pencil"></span>
-					</a>
-					<a href="/environment/delete/{{ $r->id }}">
-						<span class="glyphicon glyphicon-remove"></span>
-					</a>
-					<a href="/payment/submit/{{ $r->id }}">
-						<span>Pagar</span>
-					</a>	
-				</td>
-			</tr>
-		@empty
-					<div>Você não tem nenhum quarto cadastrado.</div>	
-		@endforelse
-	</table>
-	<a href="{{ action('IndexController@index') }}" class="btn btn-primary">Adicionar</a>
-</div>	
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Quarto</th>
+                <th>Disponibilização</th>
+                <th>Serviços</th>
+                <th>Adicional</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Quarto 01</td>
+                <td>Disponivél</td>
+                <td>Serviço 01</td>
+                <td>Adicional 01</td>
+                <td>100,00</td>
+              </tr>
+              <tr>
+                <td>Quarto 02</td>
+                <td>Disponivél</td>
+                <td>Serviço 02</td>
+                <td>Adicional 02</td>
+                <td>100,00</td>
+              </tr>
+              <tr>
+                <td>Quarto 03</td>
+                <td>Disponivél</td>
+                <td>Serviço 03</td>
+                <td>Adicional 03</td>
+                <td>100,00</td>
+              </tr>
+              <tr>
+                <td>Quarto 04</td>
+                <td>Disponivél</td>
+                <td>Serviço 04</td>
+                <td>Adicional 04</td>
+                <td>100,00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 @endsection
